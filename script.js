@@ -2,6 +2,10 @@ let mainwraperpost = document.getElementById('post-block');
 let overlaycontent = document.getElementById('overlay');
 let closeoverlay = document.getElementById('close');
 let content = document.getElementById('content');
+let addbutton = document.getElementById('add-btn')
+let form = document.getElementById('open-form');
+let savebutton = document.getElementById('save-btn');
+let closebutton = document.getElementById('x-btn');
 
 
 
@@ -98,4 +102,26 @@ function overlayfunction(item) {
 
 closeoverlay.addEventListener('click', function () {
     overlaycontent.classList.remove('active');
+    content.innerHTML = ' ';
+})
+
+addbutton.addEventListener('click', function () {
+    let newpost = document.querySelector(".open-form");
+    newpost.classList.add('active-add');
+
+
+
+})
+
+closebutton.addEventListener('click', function () {
+    newpost.classList.remove('active-add');
+})
+savebutton.addEventListener('submit', function (event) {
+    event.preventDefault();
+    console.log(event.target);
+
+    let formData = {
+        title: event.target[0].value,
+        description: event.target[1].value
+    }
 })

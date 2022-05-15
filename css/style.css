@@ -54,3 +54,137 @@
     background-color: rgb(6, 63, 32);
     color: white;
 }
+
+
+#add-btn {
+    position: fixed;
+    bottom: 5px;
+    right: 5px;
+    background: rgb(26, 53, 26);
+    width: 120px;
+    height: 50px;
+    font-size: 20px;
+    border-radius: 15px;
+    border: none;
+    color: white;
+
+
+
+}
+
+/* .new-post {
+    width: 600px;
+    height: 600px;
+background-color: rgba(47, 42, 42, 0.435);
+position: fixed;
+top: 100px;
+left: 400px;
+display: none;
+}  */
+
+
+.open-form.active-add {
+    display: block;
+}
+
+.form-x {
+    color: rgb(0, 0, 0);
+    cursor: pointer;
+}
+
+.form-x:hover {
+    color: black;
+    font-size: larger;
+    transition: 0.5 s;
+}
+
+.heading {
+    display: flex;
+    justify-content: space-between;
+    align-self: center;
+    color: white;
+    font-size: 25px;
+    margin-bottom: 20px;
+
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+
+
+}
+
+.form-title {
+    font-size: 20px;
+    color: white;
+    margin-bottom: 10px;
+}
+
+.input-title {
+    max-width: 400px;
+    width: 100%;
+    font-size: 16px;
+    font-weight: bold;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    background-color: transparent;
+    outline: none;
+    border-color: rgb(173, 171, 171);
+    margin-bottom: 30px;
+
+}
+
+.input-field {
+    margin-bottom: 30px;
+    height: 200px;
+    width: 80%
+}
+
+.open-form {
+    width: 500px;
+    padding: 15px;
+    border: 4px solid black;
+    background-color: rgb(93, 93, 108);
+    margin-top: 20px;
+    display: none;
+    position: fixed;
+    top: 100px;
+    left: 400px;
+
+}
+
+.btn-div {
+    display: flex;
+    justify-content: space-between;
+}
+
+#save-btn {
+    border: none;
+    border-radius: 12px;
+    background-color: rgb(18, 125, 81);
+    color: white;
+    cursor: pointer;
+    height: 30px;
+
+}
+
+.x-btn {
+    border: none;
+    border-radius: 12px;
+    background-color: rgb(18, 125, 81);
+    color: white;
+    cursor: pointer;
+    height: 30px;
+}
+
+.x-btn:hover {
+    color: rgb(18, 125, 81);
+    background: white;
+}
+
+#save-btn:hover {
+    color: rgb(18, 125, 81);
+    background: white;
+}
