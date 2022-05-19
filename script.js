@@ -89,7 +89,7 @@ function openoverlay(id) {
 
 }
 
-
+// can't insert description part in the overlay
 function overlayfunction(item) {
 
 
@@ -116,7 +116,18 @@ addbutton.addEventListener('click', function () {
 closebutton.addEventListener('click', function () {
     newpost.classList.remove('active-add');
 })
-savebutton.addEventListener('submit', function (event) {
+
+// savebutton.addEventListener('submit', function (event) {
+//     event.preventDefault();
+//     console.log(event.target);
+
+//     let formData = {
+//         title: event.target[0].value,
+//         description: event.target[1].value
+//     }
+// })
+
+newpost.addEventListener('submit', function (event) {
     event.preventDefault();
     console.log(event.target);
 
@@ -125,3 +136,4 @@ savebutton.addEventListener('submit', function (event) {
         description: event.target[1].value
     }
 })
+
