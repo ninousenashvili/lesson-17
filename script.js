@@ -39,7 +39,7 @@ function printData(data) {
 function createpost(item) {
     let divwrapper = document.createElement('div');
     divwrapper.classList.add('posts');
-    divwrapper.setAttribute('data_id', item.id);
+    divwrapper.setAttribute('data-id', item.id);
 
 
     let h2tag = document.createElement('h2');
@@ -47,6 +47,13 @@ function createpost(item) {
 
     let h3tag = document.createElement('h3');
     h3tag.innerText = item.title;
+
+    let deleteButton = document.createElement('button');
+    deleteButton.innerText = 'delete';
+    deleteButton.classList.add('delete-btn');
+    deleteButton.setAttribute('data-id', item.id);
+    divwrapper.appendChild(deleteButton);
+
 
     let view = document.createElement('button');
     view.innerText = 'View More';
@@ -58,9 +65,17 @@ function createpost(item) {
     divwrapper.appendChild(h3tag);
 
 
+
+
+
     view.addEventListener('click', function (event) {
-        let id = event.target.getAttribute('data_id');
+        let id = event.target.getAttribute('data-id');
         openoverlay(id);
+    })
+    deleteButton.addEventListener('click', function (event) {
+        event.stopPropagation();
+        let id = event.target.getAttribute('data-id');
+        deletepost(id);
     })
 
     mainwraperpost.appendChild(divwrapper);
@@ -68,26 +83,33 @@ function createpost(item) {
 
 }
 
-// function openoverlay(id) {
-
-//     overlaycontent.classList.add('active');
-//     let url = `https://jsonplaceholder.typicode.com/posts${id}`;
-
-//     ajax(url, function (data) {
-//         overlayfunction(data);
-
-//     })
-// }
-
 function openoverlay(id) {
 
     overlaycontent.classList.add('active');
     let url = `https://jsonplaceholder.typicode.com/posts/${id}`;
-    fetch(url, {
-        method: 'POST'
-    })
 
+    ajax(url, function (data) {
+        overlayfunction(data);
+
+    })
 }
+function deletepost(id) {
+    let url = `https://jsonplaceholder.typicode.com/posts/${id}`;
+    fetch(url, {
+        method: 'DELETE'
+    })
+}
+
+
+// function openoverlay(id) {
+
+//     overlaycontent.classList.add('active');
+//     let url = `https://jsonplaceholder.typicode.com/posts/${id}`;
+//     fetch(url, {
+//         method: 'POST'
+//     })
+
+// }
 
 // can't insert description part in the overlay
 function overlayfunction(item) {
@@ -95,6 +117,7 @@ function overlayfunction(item) {
 
     let description = document.createElement('p');
     description.innerText = item.body;
+    description.classList.add('descript');
 
     content.appendChild(description);
 
@@ -105,17 +128,19 @@ closeoverlay.addEventListener('click', function () {
     content.innerHTML = ' ';
 })
 
-addbutton.addEventListener('click', function () {
-    let newpost = document.querySelector(".open-form");
-    newpost.classList.add('active-add');
+
+
+// addbutton.addEventListener('click', function () {
+//     let newpost = document.querySelector(".open-form");
+//     newpost.classList.add('active-add');
 
 
 
-})
+// })
 
-closebutton.addEventListener('click', function () {
-    newpost.classList.remove('active-add');
-})
+// closebutton.addEventListener('click', function () {
+//     newpost.classList.remove('active-add');
+// })
 
 // savebutton.addEventListener('submit', function (event) {
 //     event.preventDefault();
@@ -127,13 +152,13 @@ closebutton.addEventListener('click', function () {
 //     }
 // })
 
-newpost.addEventListener('submit', function (event) {
-    event.preventDefault();
-    console.log(event.target);
+// newpost.addEventListener('submit', function (event) {
+//     event.preventDefault();
+//     console.log(event.target);
 
-    let formData = {
-        title: event.target[0].value,
-        description: event.target[1].value
-    }
-})
+//     let formData = {
+//         title: event.target[0].value,
+//         description: event.target[1].value
+//     }
+// })
 

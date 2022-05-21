@@ -55,6 +55,32 @@
     color: white;
 }
 
+.delete-btn {
+    position: absolute;
+    bottom: 17px;
+    left: 5px;
+    border-radius: 12px;
+    background-color: rgba(127, 255, 212, 0.603);
+    cursor: pointer;
+    border: 1px solid rgb(6, 63, 32);
+}
+
+.delete-btn:hover {
+    background-color: rgb(6, 63, 32);
+    color: white;
+}
+
+
+.descript {
+    text-align: center;
+
+
+}
+
+.content {
+    padding: 20px;
+}
+
 
 #add-btn {
     position: fixed;
